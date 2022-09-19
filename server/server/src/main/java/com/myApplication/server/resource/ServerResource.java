@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import static java.time.LocalDateTime.now;
 import static org.springframework.http.HttpStatus.CREATED;
@@ -20,13 +21,15 @@ import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.IMAGE_PNG_VALUE;
 
 @RestController
-@RequestMapping("/server")
+@CrossOrigin(origins = "*")
+@RequestMapping("/server/")
 @RequiredArgsConstructor
 public class ServerResource {
     private final ServerServiceImpl serverService;
 
-    @GetMapping("/list")
-    public ResponseEntity<Response> getServers() {
+    @GetMapping("list")
+    public ResponseEntity<Response> getServers() throws InterruptedException {
+        TimeUnit.SECONDS.sleep(3); // sleep for 3 seconds before return list of servers
         return ResponseEntity.ok(
                 Response.builder().timeStamp(now())
                         .data(Map.of("servers", serverService.list(30)))
@@ -37,7 +40,7 @@ public class ServerResource {
         );
     }
 
-    @GetMapping("/ping/{ip}")
+    @GetMapping("ping/{ip}")
     public ResponseEntity<Response> pingServer(@PathVariable("ip") String ipAddress) throws IOException {
         Server server = serverService.ping(ipAddress);
         return ResponseEntity.ok(
@@ -50,7 +53,7 @@ public class ServerResource {
         );
     }
 
-    @PostMapping("/save")
+    @PostMapping("save")
     public ResponseEntity<Response> saveServer(@RequestBody @Valid Server server) throws IOException {
         return ResponseEntity.ok(
                 Response.builder().timeStamp(now())
@@ -62,7 +65,7 @@ public class ServerResource {
         );
     }
 
-    @GetMapping("/get/{id}")
+    @GetMapping("get/{id}")
     public ResponseEntity<Response> getServer(@PathVariable("id") Long id)  {
         return ResponseEntity.ok(
                 Response.builder().timeStamp(now())
@@ -74,7 +77,7 @@ public class ServerResource {
         );
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("delete/{id}")
     public ResponseEntity<Response> deleteServer(@PathVariable("id") Long id)  {
         return ResponseEntity.ok(
                 Response.builder().timeStamp(now())
@@ -88,7 +91,7 @@ public class ServerResource {
 
 
     // this method produces an image of png type
-    @GetMapping(path = "/image/{fileName}", produces = IMAGE_PNG_VALUE)
+    @GetMapping(path = "image/{fileName}", produces = IMAGE_PNG_VALUE)
     public byte[] getServerImage(@PathVariable("fileName") String fileName) throws IOException {
         return Files.readAllBytes(Paths.get(System.getProperty("user.home") + "/Downloads/images/" + fileName));
     }
