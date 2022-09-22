@@ -1,16 +1,16 @@
 package com.myApplication.server.model;
 
 import com.myApplication.server.enumeration.Status;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class Server {
@@ -22,7 +22,7 @@ public class Server {
     @NotEmpty(message = "IP Address cannot be empty or null")
     private String ipAddress;
     private String name;
-    private String memory;
+    private Double memory;
     private String type;
     private String imageUrl;
     private Status status;
