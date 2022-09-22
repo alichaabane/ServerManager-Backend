@@ -2,6 +2,7 @@ package com.myApplication.server.service;
 
 import com.myApplication.server.model.Server;
 
+import javax.validation.Valid;
 import java.io.IOException;
 import java.util.Collection;
 
@@ -18,4 +19,5 @@ public interface ServerService {
 
     Boolean delete(Long id);
 
+    byte[] exportDataToExcel();
 }
