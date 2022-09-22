@@ -21,35 +21,35 @@ public class ServerApplication {
         SpringApplication.run(ServerApplication.class, args);
     }
 
-    @Bean
-    CommandLineRunner run(ServerRepository serverRepository, Environment env) {
-        return args -> {
-            serverRepository.save(new Server(null,
-                    "192.168.1.160",
-                    "ubuntu Linux",
-                    "16 GB",
-                    "Personal PC",
-                    "http://localhost:" + env.getProperty("server.port") + "/server/image/server1.png",
-                    Status.SERVER_UP));
-
-            serverRepository.save(new Server(null, "192.168.1.58",
-                    "Fedora Linux",
-                    "16 GB", "Dell Tower",
-                    "http://localhost:" + env.getProperty("server.port") + "/server/image/server2.png",
-                    Status.SERVER_DOWN));
-            serverRepository.save(new Server(null, "192.168.1.21",
-                    "MS 2008",
-                    "32 GB",
-                    "Web Server",
-                    "http://localhost:" + env.getProperty("server.port") + "/server/image/server3.png",
-                    Status.SERVER_UP));
-            serverRepository.save(new Server(null, "192.168.1.14",
-                    "Red Hat Enterprise Linux",
-                    "64 GB", "Mail Server",
-                    "http://localhost:" + env.getProperty("server.port") + "/server/image/server4.png",
-                    Status.SERVER_DOWN));
-        };
-    }
+//    @Bean
+//    CommandLineRunner run(ServerRepository serverRepository, Environment env) {
+//        return args -> {
+//            serverRepository.save(new Server(null,
+//                    "192.168.1.160",
+//                    "ubuntu Linux",
+//                    "16 GB",
+//                    "Personal PC",
+//                    "http://localhost:" + env.getProperty("server.port") + "/server/image/server1.png",
+//                    Status.SERVER_UP));
+//
+//            serverRepository.save(new Server(null, "192.168.1.58",
+//                    "Fedora Linux",
+//                    "16 GB", "Dell Tower",
+//                    "http://localhost:" + env.getProperty("server.port") + "/server/image/server2.png",
+//                    Status.SERVER_DOWN));
+//            serverRepository.save(new Server(null, "192.168.1.21",
+//                    "MS 2008",
+//                    "32 GB",
+//                    "Web Server",
+//                    "http://localhost:" + env.getProperty("server.port") + "/server/image/server3.png",
+//                    Status.SERVER_UP));
+//            serverRepository.save(new Server(null, "192.168.1.14",
+//                    "Red Hat Enterprise Linux",
+//                    "64 GB", "Mail Server",
+//                    "http://localhost:" + env.getProperty("server.port") + "/server/image/server4.png",
+//                    Status.SERVER_DOWN));
+//        };
+//    }
 
     @Bean
     public CorsFilter corsFilter() {

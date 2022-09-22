@@ -5,6 +5,8 @@ import com.myApplication.server.model.Response;
 import com.myApplication.server.model.Server;
 import com.myApplication.server.service.impl.ServerServiceImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -94,6 +96,15 @@ public class ServerResource {
     @GetMapping(path = "image/{fileName}", produces = IMAGE_PNG_VALUE)
     public byte[] getServerImage(@PathVariable("fileName") String fileName) throws IOException {
         return Files.readAllBytes(Paths.get(System.getProperty("user.home") + "/Downloads/images/" + fileName));
+    }
+
+    @GetMapping(path = "export-excel")
+    public ResponseEntity<Object>getExcelReport() {
+        byte[] bytes = this.serverService.exportDataToExcel();
+        return ResponseEntity.ok().contentType(new MediaType("text", "xlsx"))
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=reports_servers.xlsx")
+                .header(HttpHeaders.CONTENT_LENGTH, bytes.length + "")
+                .body(bytes);
     }
 
 }
