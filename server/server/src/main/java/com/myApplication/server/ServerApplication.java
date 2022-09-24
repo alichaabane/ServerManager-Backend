@@ -27,29 +27,29 @@ public class ServerApplication {
 //            serverRepository.save(new Server(null,
 //                    "192.168.1.160",
 //                    "ubuntu Linux",
-//                    "16 GB",
+//                    16.0,
 //                    "Personal PC",
 //                    "http://localhost:" + env.getProperty("server.port") + "/server/image/server1.png",
 //                    Status.SERVER_UP));
 //
 //            serverRepository.save(new Server(null, "192.168.1.58",
 //                    "Fedora Linux",
-//                    "16 GB", "Dell Tower",
+//                    16.0, "Dell Tower",
 //                    "http://localhost:" + env.getProperty("server.port") + "/server/image/server2.png",
 //                    Status.SERVER_DOWN));
 //            serverRepository.save(new Server(null, "192.168.1.21",
 //                    "MS 2008",
-//                    "32 GB",
+//                    32.0,
 //                    "Web Server",
 //                    "http://localhost:" + env.getProperty("server.port") + "/server/image/server3.png",
 //                    Status.SERVER_UP));
-//            serverRepository.save(new Server(null, "192.168.1.14",
+//            serverRepository.save(new Server(null, "192.168.0.3",
 //                    "Red Hat Enterprise Linux",
-//                    "64 GB", "Mail Server",
+//                    64.0, "Mail Server",
 //                    "http://localhost:" + env.getProperty("server.port") + "/server/image/server4.png",
 //                    Status.SERVER_DOWN));
 //        };
-//    }
+
 
     @Bean
     public CorsFilter corsFilter() {
@@ -58,9 +58,10 @@ public class ServerApplication {
         corsConfiguration.setAllowCredentials(true);
         corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://localhost:4200"));
         corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin", "Content-Type",
-                "Accept", "Jwt-Token", "Authorization", "Origin, Accept", "X-Requested-With",
+                "Accept", "Jwt-Token", "Authorization", "Origin, Accept", "X-Requested-With", "Content-Disposition",
                 "Access-Control-Request-Method", "Access-Control-Request-Headers"));
         corsConfiguration.setExposedHeaders(Arrays.asList("Origin", "Content-Type", "Accept", "Jwt-Token", "Authorization",
+                "Content-Disposition",
                 "Access-Control-Allow-Origin", "Access-Control-Allow-Origin", "Access-Control-Allow-Credentials", "Filename"));
         corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);

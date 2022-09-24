@@ -98,7 +98,7 @@ public class ServerResource {
         return Files.readAllBytes(Paths.get(System.getProperty("user.home") + "/Downloads/images/" + fileName));
     }
 
-    @GetMapping(path = "export-excel")
+    @PostMapping(path = "export-excel")
     public ResponseEntity<Object>getExcelReport() {
         byte[] bytes = this.serverService.exportDataToExcel();
         return ResponseEntity.ok().contentType(new MediaType("text", "xlsx"))
