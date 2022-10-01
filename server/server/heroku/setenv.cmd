@@ -11,6 +11,7 @@ REM SET HEROKU_DEBUG=1
 SET APP_NAME=servermanagement98
 SET PROJECT_PATH=D:\Geek\projects\ServerManager-Backend\server\server\
 SET PROJECT_HEROKU_PATH=%PROJECT_PATH%heroku\
+SET APP_VERSION=1.0.0
 
 REM Use the following command to create the API key/token and set it
 REM heroku authorizations:create

@@ -3,12 +3,12 @@
 CALL .\setenv
 echo 'hello'
 
-"%JAVA_HOME%"\bin\java -version
-IF ERRORLEVEL 1 PAUSE
-CD %PROJECT_PATH%
-CMD /C mvn clean package -Dmaven.test.skip=true
-IF ERRORLEVEL 1 PAUSE
-echo 'hello2'
+REM "%JAVA_HOME%"\bin\java -version
+REM IF ERRORLEVEL 1 PAUSE
+REM CD %PROJECT_PATH%
+REM CMD /C mvn clean package -Dmaven.test.skip=true
+REM IF ERRORLEVEL 1 PAUSE
+REM echo 'hello2'
 CD %PROJECT_HEROKU_PATH%
 echo 'hooo'
 CD %HEROKU_PATH%
