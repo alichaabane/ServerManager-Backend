@@ -3,8 +3,8 @@
 REM Make sure the following variables are correctly set
 SET HOMEDRIVE=C:
 SET HOMEPATH=\Temp\
-SET JAVA_HOME=C:\Program Files\Java\jdk1.8.0_281
-SET HEROKU_PATH=C:\Program Files\heroku\bin\
+SET JAVA_HOME=C:\Program Files\Java\jdk-11.0.13
+SET HEROKU_PATH=C:\heroku\bin\
 SET BROWSER=C:\Program Files\Google\Chrome\Application\chrome.exe
 REM SET HEROKU_DEBUG=1
 
