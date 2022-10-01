@@ -1,15 +1,13 @@
-server:
-  port: 8081
 spring:
   datasource:
-    username: root
-    password: root
-    url: jdbc:mysql://localhost:3308/serverDB
+    username: sql8523565
+    password: U6E3Fv32fq
+    url: jdbc:mysql://sql8.freesqldatabase.com:3306/sql8523565
   jpa:
     hibernate:
       ddl-auto: update
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
+        dialect: org.hibernate.dialect.MySQLDialect
         format_sql: true
         show_sql: true
