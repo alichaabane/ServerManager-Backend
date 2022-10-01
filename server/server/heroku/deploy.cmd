@@ -12,7 +12,7 @@ echo 'hello2'
 CD %PROJECT_HEROKU_PATH%
 echo 'hooo'
 CD %HEROKU_PATH%
-CMD /C heroku update
+REM CMD /C heroku update
 IF ERRORLEVEL 1 PAUSE
 echo 'hello3'
 
