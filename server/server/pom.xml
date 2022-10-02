@@ -10,7 +10,6 @@
     </parent>
     <groupId>com.myApplication</groupId>
     <artifactId>servermanagement98</artifactId>
-    <version>1.0.0</version>
     <name>servermanagement98</name>
     <description>Server Manager Application</description>
     <properties>
