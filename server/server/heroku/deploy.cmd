@@ -37,7 +37,7 @@ IF ERRORLEVEL 1 PAUSE
 CMD /C heroku buildpacks:clear --app %APP_NAME%
 IF ERRORLEVEL 1 PAUSE
 
-CMD /C heroku jar:deploy %PROJECT_PATH%target\%APP_NAME%.jar --app %APP_NAME%
+CMD /C heroku jar:deploy %PROJECT_PATH%target\%APP_NAME%-0.0.1-SNAPSHOT.jar --app %APP_NAME%
 IF ERRORLEVEL 1 PAUSE
 
 CMD /C heroku ps:restart --app %APP_NAME% dyno
